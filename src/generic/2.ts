@@ -11,13 +11,30 @@ type AllType = {
   weight: number
 }
 
-function compare (top, bottom): AllType {
+function compare<T extends AllType, B extends AllType>(
+  top: T,
+  bottom: B
+): AllType {
   return {
     name: top.name,
     color: top.color,
     position: bottom.position,
     weight: bottom.weight,
-  }
+  };
 }
+compare(
+  {
+    name: 'asd',
+    color: 'asd',
+    position: 1,
+    weight: 2,
+  },
+  {
+    name: 'asd',
+    color: 'asd',
+    position: 2,
+    weight: 4,
+  }
+);
 
 export {};
